@@ -1,3 +1,5 @@
+# Baekjoon_4673
+
 def selfNumber(n):
     selfN = list(range(1,n+1))
     for i in range(1,n+1):
