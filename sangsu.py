@@ -1,4 +1,4 @@
-#baekjoon_2908
+#Baekjoon_2908
 num = input().split()
 
 
