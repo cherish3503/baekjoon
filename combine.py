@@ -17,7 +17,7 @@ def combine(n, m, k, depth):
         # ex) visited[0] = 1이 포함되어있는지
         visited[i] = True
         arr.append(i+1)
-        combine(n,m,i,depth+1)
+        combine(n,m,i+1,depth+1)
         # depth당 한개의 원소를 추가
         visited[i] = False
         arr.pop()
