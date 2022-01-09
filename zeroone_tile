@@ -1,0 +1,23 @@
+#Baekjoon_1904
+
+n = int(input())
+
+def zeroone_tile(n):
+  d = [0] * (n+1)
+  
+  if n == 1:
+    return 1
+  elif n == 2:
+    return 2
+    # n = 1일경우 index_error 방지
+  
+  else:
+    d[1], d[2] = 1, 2
+
+    for i in range(3, n+1):
+      d[i] = (d[i-1] + d[i-2])%15746
+      # 
+
+  return d[n]
+
+print(zeroone_tile(n))
