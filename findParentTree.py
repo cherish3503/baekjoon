@@ -1,43 +1,34 @@
 # Baekjoon_11725
-# dict를 사용한 트리 구현
+# dict를 사용한 트리 구현 (이진트리가 아님)
 
 import sys
 sys.setrecursionlimit(10**6)
 
 class Node:
-  def __init__(self, data, left_node, right_node):
+  def __init__(self, data, child_node):
     self.data = data
-    self.left_node = left_node
-    self.right_node = right_node
+    self.child_node = child_node # 노드로 이루어진 배열
 
 def findParentTree(node):
   # 자식노드의 부모 노드를 기록
-  if node.left_node != None:
-    parent_node[node.left_node.data] = node.data
-    if node.left_node.data in tree:
-      findParentTree(node.left_node)
-  if node.right_node != None:
-    parent_node[node.right_node.data] = node.data
-    if node.right_node.data in tree:
-      findParentTree(node.right_node)
+  if node.child_node == None or len(node.child_node) == 0:
+    return # 자식이 없을 경우 탈출
+
+  for ch_node in node.child_node:
+    parent_node[ch_node.data] = node.data
+    findParentTree(ch_node)
 
 def makeTree(node):
-  left, right = None, None
+  child_arr = list()
   for i in graph[node.data]:
     if i not in tree:
-      if left == None:
-        left = Node(i, None, None)
-        tree[node.data].left_node = left
-        tree[i] = left
-      else:
-        right = Node(i, None, None)
-        tree[node.data].right_node = right
-        tree[i] = right
+      child = Node(i,None)
+      child_arr.append(child)
+      tree[i] = child
+  tree[node.data].child_node = child_arr
   
-  if left != None:
-    makeTree(left)
-  if right != None:
-    makeTree(right)
+  for ch in child_arr:
+    makeTree(ch)
 
 
 n = int(input())
@@ -48,7 +39,7 @@ for _ in range(n-1):
   graph[i1].append(i2)
   graph[i2].append(i1)
 
-tree[1] = Node(1, None, None)
+tree[1] = Node(1, None)
 makeTree(tree[1]) # 1을 루트로 하는 트리 생성
 parent_node = [None]*(n+1)
 findParentTree(tree[1]) # 루트부터 자식노드의 부모 노드를 기록
