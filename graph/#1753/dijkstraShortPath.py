@@ -12,6 +12,8 @@ def dijkstra(start):
 
   while heap:
     dist, now = heapq.heappop(heap)
+    # heap에서 처음 나오는 어떤 도착지점으로의 첫 튜플은 그 도착지점으로 가는 가장 낮은 비용이므로(더 작은 수의 합으로 만들 수 없음),
+    # 그것으로 도착지점으로 가는 최단 경로가 확정이 됨.
 
     if distance[now] < dist:
       # 이미 확정된 도착지점은 다시 고려할 필요 x
@@ -32,7 +34,7 @@ graph = [[] for i in range(v+1)]
 
 for i in range(e):
   a,b,d = map(int, sys.stdin.readline().split())
-  graph[a].append((b,d)) # u->v로 가는 가중치 w
+  graph[a].append((b,d)) # a->b로 가는 가중치 d
 
 dijkstra(start)
 
