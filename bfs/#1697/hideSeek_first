@@ -1,0 +1,25 @@
+# Baekjoon_1697
+# bfs
+
+# 10**5가 이동할 수 있는 위치의 최대 값이다.
+
+from collections import deque
+
+def hide_seek(n,k):
+  queue = deque([(n,0)])
+  visited = [False] * (10**5+1)
+  while queue:
+    loc, cnt = queue.popleft()
+    
+    if loc == k:
+      return cnt
+      
+    nx = [loc+1, loc-1, loc*2]
+    for i in range(len(nx)):
+      if nx[i] in range(0,10**5+1) and (not visited[nx[i]]):
+        queue.append((nx[i], cnt+1))
+        visited[nx[i]] = True
+
+n,k = map(int, input().split())
+
+print(hide_seek(n,k))
