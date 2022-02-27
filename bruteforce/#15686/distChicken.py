@@ -1,6 +1,7 @@
 # Baekjoon_15686
 
 import sys
+import itertools
 
 def distChicken(house, chicken):
   # 모든 치킨집과의 거리를 구함
@@ -12,18 +13,6 @@ def distChicken(house, chicken):
       row.append(abs(hx-cx)+abs(hy-cy))
     distance.append(row)
   return distance
-
-def chooseIndex(m, lenChick, index, k, depth):
-  # 치킨집 중 m개의 인덱스 값을 구함
-  if depth == m:
-    distCh.append(distCity(distChicken(house, chicken), index))
-    # 각 경우의 도시의 치킨 거리를 배열에 삽입
-    return
-
-  for i in range(k,lenChick):
-    index.append(i)
-    chooseIndex(m, lenChick, index, i+1, depth+1)
-    index.pop()
 
 def distCity(distance, index):
   # 각 인덱스에 맞는 도시의 치킨거리를 구함
@@ -50,8 +39,10 @@ for row in range(len(city)):
       chicken.append((row, col))
 # 집과 치킨집의 좌표 저장
       
-index = list()
+index_arr = list(itertools.combinations(range(len(chicken)), m))
+# 조합의 경우의 수를 모두 구함 (tuple)
 distCh = list()
-chooseIndex(m, len(chicken), index, 0, 0)
+for index in index_arr:
+  distCh.append(distCity(distChicken(house, chicken), index))
 print(min(distCh))
 # 도시의 치킨거리의 최솟값
