@@ -1,4 +1,3 @@
-package ad;
 import java.util.*;
 import java.io.*;
 
