@@ -20,8 +20,6 @@ public class Boj10942Palindrome {
 			int s = Integer.parseInt(st.nextToken());
 			int e = Integer.parseInt(st.nextToken());
 			sb.append(palindrome(dpOdd, dpEven, s-1 ,e-1)).append("\n");
-//			System.out.println();
-//			System.out.println(palindrome(dpOdd, dpEven, s-1 ,e-1));
 		}
 		System.out.println(sb.toString().trim());
 		
