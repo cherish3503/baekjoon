@@ -1,5 +1,6 @@
 
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
 public class Boj14003asc {
@@ -13,6 +14,7 @@ public class Boj14003asc {
 		}
 		
 	}
+
 	
 	public static final int maxMoveCnt = 5;
 	public static void main(String[] args) throws Exception{
@@ -29,7 +31,7 @@ public class Boj14003asc {
 		int maxLen = 0;
 		st = new StringTokenizer(br.readLine());
 //		minValArr[0] = Integer.parseInt(st.nextToken());
-	
+
 		
 		for(int i=0; i<N; ++i) {
 			int target = Integer.parseInt(st.nextToken());
