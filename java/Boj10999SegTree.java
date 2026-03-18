@@ -82,7 +82,8 @@ public class Boj10999SegTree {
 				lazy[now*2] += delta;
 				lazy[now*2+1] += delta;
 			}
-			
+//			
+//			lazy[now] += delta;
 			return;
 		}
 		int mid = (start+end)/2;
