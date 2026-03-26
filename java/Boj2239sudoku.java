@@ -56,12 +56,7 @@ public class Boj2239sudoku {
 		for(int i=1; i<=N; ++i) {
 			if(result != null) return;
 			if(!can(board, row, col, i)) continue;
-//			int[][] clone = new int[N][N];
-//			for(int r=0; r<N; ++r) {
-//				for(int c=0; c<N; ++c) {
-//					clone[r][c] = board[r][c];
-//				}
-//			}
+
 			board[row][col] = i;
 			dfs(board, depth+1);
 			board[row][col] = 0;
