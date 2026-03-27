@@ -1,6 +1,8 @@
 import java.util.*;
 import java.io.*;
 
+
+
 public class Boj14428_query {
 	
 	private static int N;
