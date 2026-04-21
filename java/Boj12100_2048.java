@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Boj12100_2048 {
-	public static final int maxMoveCnt = 5;
+	public static final int maxMoveCnt = 10;
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -20,19 +20,6 @@ public class Boj12100_2048 {
 		
 		System.out.println(moveDfs(board, 0));
 
-		
-//		Arrays.toString(null)
-//		move(board, 3);
-//		Arrays.stream(board).map(Arrays::toString).forEach(System.out::println);
-//		System.out.println();
-//		
-//		move(board, 0);
-//		Arrays.stream(board).map(Arrays::toString).forEach(System.out::println);
-//		System.out.println();
-//		
-//		move(board, 3);
-//		Arrays.stream(board).map(Arrays::toString).forEach(System.out::println);
-//		System.out.println();
 	}
 	
 	
